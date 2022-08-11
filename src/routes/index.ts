@@ -1,9 +1,11 @@
-import { Router, Request, Response } from "express";
+import * as HomeController from '../controllers/homeController';
+import { Router } from "express";
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-    res.send('Ola mundo')
-});
+router.get('/', HomeController.home);
+
+router.get('/usuario/:name?', HomeController.user);
+router.get('/:name/:lang', HomeController.nameLang);
 
 export default router;
