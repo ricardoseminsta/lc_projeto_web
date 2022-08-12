@@ -11,5 +11,7 @@ server.set('view engine', 'ejs');
 server.set('views', path.join(__dirname, 'views'));
 server.use('/static', express.static(path.join(__dirname, '../public')));
 
+server.use(express.urlencoded({extended: true}));
+
 server.use(mainRoutes)
 server.listen(process.env.PORT)

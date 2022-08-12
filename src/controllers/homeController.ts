@@ -40,14 +40,14 @@ export const createUser =  async (req: Request, res: Response) => {
     
     let name: string = req.body.name;
     let age: number = parseInt(req.body.age);
+    console.log(name, age);
     
     if(name){
         const userNew = User.build({ name })
         if(age) {
             userNew.age = age; 
         }
-    await userNew.save();
+        await userNew.save();
     }
-
    res.redirect('/');
 }

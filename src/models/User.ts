@@ -13,7 +13,7 @@ export const User = sequelize.define<UserInstance>("User",{
         autoIncrement: true,
         type: DataTypes.INTEGER,
     },
-    nome: {
+    name: {
         type: DataTypes.STRING,
     },
     age: {
