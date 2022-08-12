@@ -7,5 +7,6 @@ router.get('/', HomeController.home);
 
 router.get('/usuario/:name?', HomeController.user);
 router.get('/:name/:lang', HomeController.nameLang);
+router.post('/usuariocadastrado', HomeController.createUser);
 
 export default router;

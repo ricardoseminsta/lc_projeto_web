@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { User } from "../models/User";
 
 export const home = (req: Request, res: Response) => {
 
@@ -33,4 +34,20 @@ export const user =  (req: Request, res: Response) => {
     } else {
         res.send('Ola usuario');
     }
+}
+
+export const createUser =  async (req: Request, res: Response) => {
+    
+    let name: string = req.body.name;
+    let age: number = parseInt(req.body.age);
+    
+    if(name){
+        const userNew = User.build({ name })
+        if(age) {
+            userNew.age = age; 
+        }
+    await userNew.save();
+    }
+
+   res.redirect('/');
 }
