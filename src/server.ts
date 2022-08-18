@@ -14,4 +14,6 @@ server.use('/static', express.static(path.join(__dirname, '../public')));
 server.use(express.urlencoded({extended: true}));
 
 server.use(mainRoutes)
-server.listen(process.env.PORT)
+server.listen(process.env.PORT, () =>{
+    console.log("server started");
+})

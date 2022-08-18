@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { User } from "../models/User";
+import slugify from 'slugify';
 
 export const home = (req: Request, res: Response) => {
 
@@ -50,4 +51,19 @@ export const createUser =  async (req: Request, res: Response) => {
         await userNew.save();
     }
    res.redirect('/');
+}
+
+export const createCategory =  async (req: Request, res: Response) => {
+    
+    let name: string = req.body.name;
+    let slug: string = slugify(req.body.name);
+
+        
+
+   res.redirect('/categories');
+}
+
+export const categories = (req: Request, res: Response) => {
+
+    res.render('pages/categories')
 }
