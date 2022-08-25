@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { User } from "../models/User";
+import { Categorie } from "../models/Categories";
 import slugify from 'slugify';
 
 export const home = (req: Request, res: Response) => {
@@ -58,12 +59,21 @@ export const createCategory =  async (req: Request, res: Response) => {
     let name: string = req.body.name;
     let slug: string = slugify(req.body.name);
 
-        
-
+    if(name) {
+        const newCategory = Categorie.build({ name, slug });
+        await newCategory.save();
+    }
    res.redirect('/categories');
 }
 
 export const categories = (req: Request, res: Response) => {
-
+   
     res.render('pages/categories')
+}
+
+export const listCategories = async (req: Request, res: Response) => {
+    const allCategories = await Categorie.findAll();
+    console.log(allCategories)
+    
+    res.render('pages/list', { allCategories })
 }

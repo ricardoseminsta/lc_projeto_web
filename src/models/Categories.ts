@@ -4,9 +4,10 @@ import { sequelize } from "../instances/mysql";
 export interface CategoriesInstance extends Model {
     id: number;
     nome: string;
+    slug: string;
 }
 
-export const User = sequelize.define<CategoriesInstance>("User",{
+export const Categorie = sequelize.define<CategoriesInstance>("categories",{
     id: {
         primaryKey: true,
         autoIncrement: true,
@@ -14,11 +15,14 @@ export const User = sequelize.define<CategoriesInstance>("User",{
     },
     name: {
         type: DataTypes.STRING,
+        unique: true
     },
     slug: {
         type: DataTypes.STRING,
+        
     }
     }, {
     tableName: 'categories',
-    timestamps: false
 });
+
+Categorie.sync({ force: true });
