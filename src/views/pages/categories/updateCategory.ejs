@@ -1,4 +1,4 @@
-<%- include('partials/header.ejs') %>
+<%- include('../partials/header.ejs') %>
 
    
     <div class="container">
@@ -20,14 +20,15 @@
     </div>
     <div class="px-4 py-5 my-5 text-center">
         <img class="d-block mx-auto mb-4" src="/images/bootstrap-themes.png" alt="" width="72" height="57">
-        <h1 class="display-5 fw-bold">Cadastre o Categoria</h1>
+        <h1 class="display-5 fw-bold">Atuyalização de Categoria</h1>
+        <p><%= listCat.name %> - <%= listCat.slug %></p>
         <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Iniciando o cadastro de categorias</p>
+            <p class="lead mb-4">Iniciando o Atualização de Categoria</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <form action="/categoriacadastrado" method="post" >
+                <form action="/categories/update/" method="post" >
                     <fieldset>
                         <legend>Cadastro de Categorias</legend>
-                        <label> Nome:
+                        <label> Novo Nome:
                             <input type="text" name="name" placeholder="Digite a categoria"/>
                         </label>
                         <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Cadastrar</button>
@@ -36,4 +37,4 @@
             </div>
         </div>
     </div>
-    <%- include('partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>

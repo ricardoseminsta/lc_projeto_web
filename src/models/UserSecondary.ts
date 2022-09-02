@@ -1,28 +1,26 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../instances/mysql";
 
-export interface CategoriesInstance extends Model {
+export interface UserSecondaryInstance extends Model {
     id: number;
-    name: string;
-    slug: string;
+    email: string;
+    password: string;
 }
 
-export const Categorie = sequelize.define<CategoriesInstance>("categories",{
+export const UserSecondary = sequelize.define<UserSecondaryInstance>("UserSecondary",{
     id: {
         primaryKey: true,
         autoIncrement: true,
         type: DataTypes.INTEGER,
     },
-    name: {
+    email: {
         type: DataTypes.STRING,
-        unique: true
     },
-    slug: {
+    password: {
         type: DataTypes.STRING,
-        
     }
-    }, {
-    tableName: 'categories',
+}, {
+    tableName: 'userSecondary',
 });
 
-Categorie.sync({ alter: true });
+UserSecondary.sync({ alter: true });

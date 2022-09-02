@@ -1,4 +1,4 @@
-<%- include('partials/header.ejs') %>
+<%- include('../partials/header.ejs') %>
 
 <table class="table table-striped table-">
     <tr>
@@ -13,9 +13,12 @@
        <td><%= allCategories[i].id %></td>
        <td><%= allCategories[i].name %></td>
        <td><%= allCategories[i].slug %></td>
-       <td><button class="btn btn-primary">Editar</button><button class="btn btn-danger ml-2">Deletar</button></td>
+       <td>
+         <a href ="/categories/update/<%=allCategories[i].id%>" type="submit" class="btn btn-primary">Editar</a>
+         <a href ="/categories/delete/<%=allCategories[i].id%>" type="submit" class="btn btn-danger ml-2">Deletar</a>
+      </td>
      </tr>    
     <% } %>
  </table>
 
-<%- include('partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>
